@@ -3,6 +3,7 @@ import { useDraggable } from '@dnd-kit/core';
 import { useDroppable } from '@dnd-kit/core';
 import { DndContext } from '@dnd-kit/core';
 import { QUESTIONS } from '../../mocks/questions';
+import Layout from '../../components/Layout';
 
 const COLUMNS = [
 	{
@@ -14,6 +15,11 @@ const COLUMNS = [
 		id: 1,
 		name: 'Project Management',
 		questions: QUESTIONS.slice(11, 14),
+	},
+	{
+		id: 2,
+		name: 'C',
+		questions: QUESTIONS.slice(15, 25),
 	},
 	{
 		id: 2,
@@ -34,11 +40,13 @@ const ColumnEditor = () => {
 	return (
 		<>
 			<DndContext onDragEnd={handleDragEnd}>
-				<div className='flex flex-row justify-between'>
-					{columnList.map((_c, i) => (
-						<ColumnContainer key={i} column={_c} />
-					))}
-				</div>
+				<Layout>
+					<div className='flex flex-row justify-between'>
+						{columnList.map((_c, i) => (
+							<ColumnContainer key={i} column={_c} />
+						))}
+					</div>
+				</Layout>
 			</DndContext>
 		</>
 	);
