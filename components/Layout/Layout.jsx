@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Link from 'next/link';
 
 import {
 	ChevronDoubleLeftIcon,
@@ -17,9 +18,17 @@ const Layout = ({ children }) => {
 	}
 	return (
 		<>
-			<div className=''>
-				<div className='fixed w-full h-12 bg-gray-800 border-b-2 border-black'>
-					<div className='p-4 font-semibold text-white'>PAM</div>
+			<div className='bg-white'>
+				<div className='fixed flex flex-row w-full h-12 p-4 space-x-4 text-white bg-gray-800 border-b-2 border-black'>
+					<div>Overview</div>
+					<Link href={'/editors/list'}>
+						<a>List</a>
+					</Link>
+					<Link href={'/editors/columns'}>
+						<a>Categories</a>
+					</Link>
+					<div>Messages</div>
+					<div>Questions</div>
 				</div>
 				<div className='flex flex-row pt-14'>
 					<div>{children}</div>

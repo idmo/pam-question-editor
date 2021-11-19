@@ -5,7 +5,7 @@ import Layout from '../../components/Layout';
 import ColumnContainer from '../../components/ColumnContainer/ColumnContainer';
 import QuestionContainer from '../../components/QuestionContainer';
 
-const COLUMNS = [
+export const COLUMNS = [
 	{
 		id: 0,
 		name: 'DevOps',
@@ -49,8 +49,8 @@ const ColumnEditor = () => {
 
 	return (
 		<>
-			<DndContext onDragEnd={handleDragEnd}>
-				<Layout>
+			<Layout>
+				<DndContext onDragEnd={handleDragEnd}>
 					<div className='flex flex-col p-2 space-x-2 md:flex-row'>
 						{columnList.map((_c, i) => (
 							<ColumnContainer key={i} column={_c}>
@@ -60,8 +60,8 @@ const ColumnEditor = () => {
 							</ColumnContainer>
 						))}
 					</div>
-				</Layout>
-			</DndContext>
+				</DndContext>
+			</Layout>
 		</>
 	);
 };
