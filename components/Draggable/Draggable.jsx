@@ -1,17 +1,21 @@
 import { useDraggable } from '@dnd-kit/core';
+import { CSS } from '@dnd-kit/utilities';
+import classNames from '../../utils/classnames';
 
 const Draggable = (props) => {
 	const { attributes, listeners, setNodeRef, transform } = useDraggable({
 		id: props.id,
 	});
-	const style = transform
-		? {
-				transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
-		  }
-		: undefined;
+	const style = {
+		transform: CSS.Translate.toString(transform),
+	};
+
 	return (
-		<div className='inline-flex p-8 border border-green-600 rounded'>
-			<button ref={setNodeRef} style={style} {...listeners} {...attributes}>
+		<div
+			ref={setNodeRef}
+			style={style}
+			className='inline-flex p-8 border border-green-600 rounded'>
+			<button {...listeners} {...attributes} className='border border-black'>
 				{props.children}
 			</button>
 		</div>

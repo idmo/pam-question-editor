@@ -1,4 +1,5 @@
 import { useDroppable } from '@dnd-kit/core';
+import classNames from '../../utils/classnames';
 
 const Droppable = (props) => {
 	const { isOver, setNodeRef } = useDroppable({
@@ -10,9 +11,11 @@ const Droppable = (props) => {
 
 	return (
 		<div
-			className='inline-flex p-8 border border-black rounded'
-			ref={setNodeRef}
-			style={style}>
+			className={classNames(
+				isOver ? 'green' : undefined,
+				'inline-flex p-8 border border-black rounded'
+			)}
+			ref={setNodeRef}>
 			{props.children}
 		</div>
 	);

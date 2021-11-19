@@ -3,12 +3,13 @@ import { DndContext } from '@dnd-kit/core';
 import { QUESTIONS } from '../../mocks/questions';
 import Layout from '../../components/Layout';
 import ColumnContainer from '../../components/ColumnContainer/ColumnContainer';
+import QuestionContainer from '../../components/QuestionContainer';
 
 const COLUMNS = [
 	{
 		id: 0,
 		name: 'DevOps',
-		questions: QUESTIONS.slice(0, 10),
+		questions: QUESTIONS.slice(0, 6),
 	},
 	{
 		id: 1,
@@ -18,22 +19,22 @@ const COLUMNS = [
 	{
 		id: 2,
 		name: 'User Experience',
-		questions: QUESTIONS.slice(15, 25),
+		questions: QUESTIONS.slice(15, 21),
 	},
 	{
-		id: 2,
+		id: 3,
 		name: 'Engineering',
-		questions: QUESTIONS.slice(15, 25),
+		questions: QUESTIONS.slice(22, 30),
 	},
 	{
-		id: 2,
+		id: 4,
 		name: 'Mobile',
-		questions: QUESTIONS.slice(15, 25),
+		questions: QUESTIONS.slice(31, 35),
 	},
 	{
-		id: 2,
+		id: 5,
 		name: 'Project Management',
-		questions: QUESTIONS.slice(15, 25),
+		questions: QUESTIONS.slice(36, 44),
 	},
 ];
 
@@ -50,9 +51,13 @@ const ColumnEditor = () => {
 		<>
 			<DndContext onDragEnd={handleDragEnd}>
 				<Layout>
-					<div className='flex flex-row p-2 space-x-2'>
+					<div className='flex flex-col p-2 space-x-2 md:flex-row'>
 						{columnList.map((_c, i) => (
-							<ColumnContainer key={i} column={_c} />
+							<ColumnContainer key={i} column={_c}>
+								{_c.questions.map((_q, i) => (
+									<QuestionContainer key={i} question={_q} index={i} />
+								))}
+							</ColumnContainer>
 						))}
 					</div>
 				</Layout>
