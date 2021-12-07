@@ -5,7 +5,8 @@ import {
 	CloudUploadIcon,
 	DotsHorizontalIcon,
 } from '@heroicons/react/outline';
-import { ViewGridIcon } from '@heroicons/react/solid';
+import { KeyIcon } from '@heroicons/react/solid';
+import classNames from '../../utils/classnames';
 
 const QuestionContainer = ({ question, index }) => {
 	const { attributes, listeners, setNodeRef, transform } = useDraggable({
@@ -31,11 +32,21 @@ const QuestionContainer = ({ question, index }) => {
 			</div>
 			<div className='flex flex-row space-x-1'>
 				<div className='flex flex-row justify-between'>
-					<div dangerouslySetInnerHTML={{ __html: question.notes }} />
+					<div
+						className={classNames(
+							question.removed ? 'line-through text-gray-400' : ''
+						)}
+						dangerouslySetInnerHTML={{ __html: question.notes }}
+					/>
 				</div>
 			</div>
 
-			<div className='flex flex-row justify-between item-center pt-1.5 text-gray-400'>
+			<div className='flex flex-row justify-end item-center space-x-3 pt-1.5 text-gray-400'>
+				{question.key_question ? (
+					<KeyIcon className='inline-flex w-4 h-4 text-indigo-500' />
+				) : (
+					<KeyIcon className='inline-flex w-4 h-4 text-gray-200' />
+				)}
 				{question.comment ? (
 					<AnnotationIcon className='inline-flex w-4 h-4 text-indigo-500' />
 				) : (

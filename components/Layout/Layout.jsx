@@ -20,6 +20,7 @@ const Layout = ({ children }) => {
 		<>
 			<div className='bg-white'>
 				<div className='fixed flex flex-row w-full h-12 p-4 space-x-4 text-white bg-gray-800 border-b-2 border-black'>
+					<div>PAM</div>
 					<div>Overview</div>
 					<Link href={'/editors/list'}>
 						<a>List</a>

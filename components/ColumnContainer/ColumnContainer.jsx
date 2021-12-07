@@ -4,6 +4,7 @@ import QuestionContainer from '../QuestionContainer';
 import { DotsHorizontalIcon, PlusIcon } from '@heroicons/react/outline';
 import { ArrowsExpandIcon } from '@heroicons/react/outline';
 import classNames from '../../utils/classnames';
+
 const ColumnContainer = ({ column, children }) => {
 	const [questionList, setQuestionList] = useState(column.questions);
 	const [isCollapsed, setIsCollapsed] = useState(false);
@@ -16,19 +17,21 @@ const ColumnContainer = ({ column, children }) => {
 		setQuestionList((arr) => [...arr, obj]);
 	}
 
-	console.log(questionList);
 	const style = {
 		color: isOver ? 'green' : undefined,
 	};
 	return (
 		<div
 			className={classNames(
-				'w-full md:w-[360px] p-1.5 h-full rounded-md bg-indigo-100 hover:bg-indigo-300 hover:shadow-lg border border-indigo-100 hover:border-dashed hover:border-indigo-700'
+				column.name
+					? ' bg-indigo-100 hover:bg-indigo-300 hover:shadow-lg border border-indigo-100 hover:border-dashed hover:border-indigo-700 rounded-md'
+					: ' border border-gray-300 border-dashed bg-gray-100',
+				'w-full md:w-[360px] p-1.5 h-full '
 			)}
 			ref={setNodeRef}>
 			<div className={classNames(isCollapsed ? 'hidden' : 'block')}>
 				<div className='flex flex-row items-center justify-between pt-2 mb-2 font-semibold px-1.5'>
-					<div>{column.name}</div>
+					<div>{column.name ? column.name : 'Questions'}</div>
 					<div className='inline-flex space-x-1'>
 						<PlusIcon className='w-4 h-4' />
 						<DotsHorizontalIcon className='w-4 h-4' />

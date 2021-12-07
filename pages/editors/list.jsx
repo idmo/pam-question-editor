@@ -5,6 +5,7 @@ import {
 	CloudUploadIcon,
 	CloudIcon,
 	AnnotationIcon,
+	KeyIcon,
 } from '@heroicons/react/outline';
 import { useState } from 'react';
 import Layout from '../../components/Layout';
@@ -28,7 +29,7 @@ const List = () => {
 								key={i}
 								className='flex flex-row items-center justify-between py-2 mt-2 font-semibold border-t-4 border-gray-300'>
 								<div className='flex flex-row items-center space-x-1'>
-									<ChevronRightIcon className='w-4 h-4 text-gray-600' />
+									<ChevronRightIcon className='w-4 h-4 text-gray-600 transform rotate-90' />
 									<div>{_c.name}</div>
 								</div>
 								<div className='inline-flex hover:space-x-1'>
@@ -47,6 +48,11 @@ const List = () => {
 										<div>{_q.notes}</div>
 									</div>
 									<div className='flex flex-row justify-between item-center pt-1.5 text-gray-400 space-x-4'>
+										{_q.key_question ? (
+											<KeyIcon className='inline-flex w-4 h-4 text-indigo-500' />
+										) : (
+											<KeyIcon className='inline-flex w-4 h-4 text-gray-400' />
+										)}
 										{_q.comment ? (
 											<AnnotationIcon className='inline-flex w-4 h-4 text-indigo-500' />
 										) : (

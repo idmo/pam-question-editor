@@ -8,6 +8,11 @@ import QuestionContainer from '../../components/QuestionContainer';
 export const COLUMNS = [
 	{
 		id: 0,
+
+		questions: QUESTIONS.slice(11, 34),
+	},
+	{
+		id: 6,
 		name: 'DevOps',
 		questions: QUESTIONS.slice(0, 6),
 	},
