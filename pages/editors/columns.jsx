@@ -60,7 +60,12 @@ const ColumnEditor = () => {
 						{columnList.map((_c, i) => (
 							<ColumnContainer key={i} column={_c}>
 								{_c.questions.map((_q, i) => (
-									<QuestionContainer key={i} question={_q} index={i} />
+									<QuestionContainer
+										key={i}
+										question={_q}
+										index={i}
+										category={_c.name}
+									/>
 								))}
 							</ColumnContainer>
 						))}
