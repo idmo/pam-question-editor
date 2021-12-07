@@ -9,7 +9,7 @@ export const COLUMNS = [
 	{
 		id: 0,
 
-		questions: QUESTIONS.slice(11, 34),
+		questions: QUESTIONS.slice(45, 64),
 	},
 	{
 		id: 6,
