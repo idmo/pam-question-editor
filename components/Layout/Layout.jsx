@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
 	return (
 		<>
 			<Container>
-				<div className='px-2 py-4 border-b border-black'>
+				<div className='px-2 py-4 border-b border-indigo-200'>
 					<GlobalNavigation />
 				</div>
 				<div className='px-2 py-4'>

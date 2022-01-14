@@ -46,40 +46,15 @@ const PURSUITS = [
 		latest: 'March 1, 2022',
 		status: 'Great',
 	},
-	{
-		name: 'Acme',
-		latest: 'March 1, 2022',
-		status: 'Great',
-	},
-	{
-		name: 'Acme',
-		latest: 'March 1, 2022',
-		status: 'Great',
-	},
-	{
-		name: 'Acme',
-		latest: 'March 1, 2022',
-		status: 'Great',
-	},
-	{
-		name: 'Acme',
-		latest: 'March 1, 2022',
-		status: 'Great',
-	},
-	{
-		name: 'Acme',
-		latest: 'March 1, 2022',
-		status: 'Great',
-	},
 ];
 
-const Pursuits = () => {
+const Organization = () => {
 	return (
 		<Layout>
 			<div className='flex flex-col space-y-4'>
 				<div className='flex flex-col px-6 py-6 space-y-4 bg-white rounded-md'>
 					<div className='flex flex-row justify-between'>
-						<div className='text-2xl font-semibold'>Pursuits</div>
+						<div className='text-2xl font-semibold'>Organization Page</div>
 						<div className='text-sm text-gray-500'>
 							Current usage 3000 since
 						</div>
@@ -98,16 +73,10 @@ const Pursuits = () => {
 						))}
 					</div>
 				</div>
-				<div className=''>
+				<div className='grid grid-cols-8 gap-4'>
 					<div className='flex flex-col col-span-5 px-6 py-6 space-y-4 bg-white rounded-md'>
 						<div className='flex flex-row justify-between'>
-							<div className='text-2xl font-semibold'>
-								<input
-									type='search'
-									className='w-full p-3 rounded-md'
-									placeholder='Search Pursuits'
-								/>
-							</div>
+							<div className='text-2xl font-semibold'>Pursuits</div>
 							<div>
 								<button className='inline-flex items-center px-3 py-2 space-x-3 bg-gray-300 rounded-md'>
 									Add New Pursuit <PlusIcon className='w-4 h-4' />
@@ -119,7 +88,7 @@ const Pursuits = () => {
 								<div
 									key={i}
 									className='flex flex-row items-center justify-between'>
-									<div className='flex flex-row items-center justify-between space-x-4'>
+									<div className='flex flex-row items-center space-x-4'>
 										<div className='h-20 bg-gray-200 rounded-md w-28'></div>
 										<div>
 											<div className='text-xl font-semibold'>{_p.name}</div>
@@ -133,10 +102,15 @@ const Pursuits = () => {
 							))}
 						</div>
 					</div>
+					<div className='flex flex-col col-span-3 px-6 py-6 space-y-4 bg-white rounded-md'>
+						<div className='flex flex-row justify-between'>
+							<div className='text-2xl font-semibold'>Members</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</Layout>
 	);
 };
 
-export default Pursuits;
+export default Organization;
