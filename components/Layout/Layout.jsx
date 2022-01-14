@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
-
+import GlobalNavigation from '../GlobalNavigation/';
+import SecondaryNavigation from '../SecondaryNavigation';
+import Container from '../Container/Container';
 import {
 	ChevronDoubleLeftIcon,
 	ChevronDoubleRightIcon,
@@ -18,23 +20,15 @@ const Layout = ({ children }) => {
 	}
 	return (
 		<>
-			<div className='bg-white'>
-				<div className='fixed flex flex-row w-full h-12 p-4 space-x-4 text-white bg-gray-800 border-b-2 border-black'>
-					<div>PAM</div>
-					<div>Overview</div>
-					<Link href={'/editors/list'}>
-						<a>List</a>
-					</Link>
-					<Link href={'/editors/columns'}>
-						<a>Categories</a>
-					</Link>
-					<div>Messages</div>
-					<div>Questions</div>
+			<Container>
+				<div className='px-2 py-4 border-b border-black'>
+					<GlobalNavigation />
 				</div>
-				<div className='flex flex-row pt-14'>
-					<div>{children}</div>
+				<div className='px-2 py-4'>
+					<SecondaryNavigation />
 				</div>
-			</div>
+				<div>{children}</div>
+			</Container>
 		</>
 	);
 };
