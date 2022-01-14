@@ -1,5 +1,8 @@
 import Layout from '../../components/Layout';
-import { ChevronRightIcon, PlusIcon } from '@heroicons/react/solid';
+import { PlusIcon } from '@heroicons/react/outline';
+import { PURSUITS } from '../../mocks/pursuits';
+import NavListItem from '../../components/NavListItem';
+import Thumbnail from '../../components/Thumbnail';
 
 const STATS = [
 	{
@@ -17,59 +20,6 @@ const STATS = [
 	{
 		name: 'Team Members',
 		stat: '14 People',
-	},
-];
-
-const PURSUITS = [
-	{
-		name: 'Acme',
-		latest: 'March 1, 2022',
-		status: 'Great',
-	},
-	{
-		name: 'Acme',
-		latest: 'March 1, 2022',
-		status: 'Great',
-	},
-	{
-		name: 'Acme',
-		latest: 'March 1, 2022',
-		status: 'Great',
-	},
-	{
-		name: 'Acme',
-		latest: 'March 1, 2022',
-		status: 'Great',
-	},
-	{
-		name: 'Acme',
-		latest: 'March 1, 2022',
-		status: 'Great',
-	},
-	{
-		name: 'Acme',
-		latest: 'March 1, 2022',
-		status: 'Great',
-	},
-	{
-		name: 'Acme',
-		latest: 'March 1, 2022',
-		status: 'Great',
-	},
-	{
-		name: 'Acme',
-		latest: 'March 1, 2022',
-		status: 'Great',
-	},
-	{
-		name: 'Acme',
-		latest: 'March 1, 2022',
-		status: 'Great',
-	},
-	{
-		name: 'Acme',
-		latest: 'March 1, 2022',
-		status: 'Great',
 	},
 ];
 
@@ -116,20 +66,15 @@ const Pursuits = () => {
 						</div>
 						<div className='flex flex-col space-y-4'>
 							{PURSUITS.map((_p, i) => (
-								<div
-									key={i}
-									className='flex flex-row items-center justify-between'>
-									<div className='flex flex-row items-center justify-between space-x-4'>
-										<div className='h-20 bg-gray-200 rounded-md w-28'></div>
-										<div>
-											<div className='text-xl font-semibold'>{_p.name}</div>
-											<div>{_p.latest}</div>
+								<NavListItem key={i}>
+									<div className='flex flex-row items-center space-x-4'>
+										<Thumbnail>{_p.score}</Thumbnail>
+										<div className='flex flex-col'>
+											<div className='text-xl font-semibold'>{_p.title}</div>
+											<div>{_p.category}</div>
 										</div>
 									</div>
-									<div>
-										<ChevronRightIcon className='w-6 h-6 text-gray-500' />
-									</div>
-								</div>
+								</NavListItem>
 							))}
 						</div>
 					</div>

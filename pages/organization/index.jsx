@@ -1,5 +1,6 @@
 import Layout from '../../components/Layout';
 import { ChevronRightIcon, PlusIcon } from '@heroicons/react/solid';
+import { PURSUITS } from '../../mocks/pursuits';
 
 const STATS = [
 	{
@@ -17,34 +18,6 @@ const STATS = [
 	{
 		name: 'Team Members',
 		stat: '14 People',
-	},
-];
-
-const PURSUITS = [
-	{
-		name: 'Acme',
-		latest: 'March 1, 2022',
-		status: 'Great',
-	},
-	{
-		name: 'Acme',
-		latest: 'March 1, 2022',
-		status: 'Great',
-	},
-	{
-		name: 'Acme',
-		latest: 'March 1, 2022',
-		status: 'Great',
-	},
-	{
-		name: 'Acme',
-		latest: 'March 1, 2022',
-		status: 'Great',
-	},
-	{
-		name: 'Acme',
-		latest: 'March 1, 2022',
-		status: 'Great',
 	},
 ];
 
@@ -84,7 +57,7 @@ const Organization = () => {
 							</div>
 						</div>
 						<div className='flex flex-col space-y-4'>
-							{PURSUITS.map((_p, i) => (
+							{PURSUITS.slice(0, 5).map((_p, i) => (
 								<div
 									key={i}
 									className='flex flex-row items-center justify-between'>
